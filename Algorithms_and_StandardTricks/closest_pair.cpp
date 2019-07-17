@@ -46,7 +46,6 @@ double closest_pair(int n)
             	cnt++;
                 best = min(best, sqrt(pow(pnts[i].py - it->py, 2.0)+pow(pnts[i].px - it->px, 2.0)));
             }
-            cout<<cnt<<endl;
             box.insert(pnts[i]);
         }
         return best;
