@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-int Sum[1000];
-int root(int ary[],int i)
+ll sum[N],ary[N];
+ll root(ll i)
 {
 	while(ary[i]!=i)
 	{
@@ -11,30 +11,31 @@ int root(int ary[],int i)
 	return i;
 }
 
-int union(int Ary[],int a,int b)
+ll un(ll a,ll b)
 {
-	int rA=root(Ary,a);
-	int rB=root(Ary,b);
-	if(Sum[rA]>Sum[rB])
+	ll rA=root(a);
+	ll rB=root(b);
+	if(rA==rB)return 0;
+	if(sum[rA]>sum[rB])
 	{
-		Ary[rB]=rA;
-		Sum[rA]+=Sum[rB];
+		ary[rB]=rA;
+		sum[rA]+=sum[rB];
 	}
 	else
 	{
-		Ary[rA]=rB;
-		Sum[rB]+=Sum[rA];
+		ary[rA]=rB;
+		sum[rB]+=sum[rA];
 	}
 }
-bool find(int a,int b)
+bool find(ll a,ll b)
 {
 	return root(a)==root(b) ? true : false;
 }
 
 int main()
 {
-		int n=10;
-		for(int i=0;i<n;i++)
+		ll n=10;
+		for(ll i=0;i<n;i++)
 		{
 			Ary[i]=i;
 			Sum[i]=1;
