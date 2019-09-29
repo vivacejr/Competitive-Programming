@@ -1,7 +1,7 @@
 //SPOJ SUB_PROB
 #include<bits/stdc++.h>
 using namespace std;
-typedef int ll;
+typedef long long int ll;
 typedef long double ld;
  
 #define lp(var,start,end) for (ll var = start; var <end ; ++var)
