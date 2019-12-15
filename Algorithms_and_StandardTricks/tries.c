@@ -8,15 +8,12 @@
 // Alphabet size (# of symbols)
 #define ALPHABET_SIZE (26)
  
-// Converts key current character into index
-// use only 'a' through 'z' and lower case
 #define CHAR_TO_INDEX(c) ((int)c - (int)'a')
  
-// trie node
 struct TrieNode
 {
     struct TrieNode *children[ALPHABET_SIZE];
-       bool isEndOfWord;
+    bool isEndOfWord;
 };
  
 // Returns new trie node (initialized to NULLs)
