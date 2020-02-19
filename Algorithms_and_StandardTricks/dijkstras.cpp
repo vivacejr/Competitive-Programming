@@ -15,7 +15,7 @@ typedef long double ld;
 #define endl "\n"
 const ll N=1e5+5;
 const ll inf=1e16;
-priority_queue < pll,vector<pll>, greater<pll> > pq;
+priority_queue<pll,vector<pll>, greater<pll>>pq;
 ll vis[N];
 int main()
 {
@@ -35,11 +35,11 @@ int main()
 	ll x;
 	cin >> x; //source
 	for (int j = 0; j < n+1; ++j) level[j]=inf,vis[j]=0;
-	pq.push(mp((ll)0,(ll)0));
+	pq.push(mp((ll)0,(ll)x));
 	while( !pq.empty() )
 	{
-		ll a=pq.top().F;
-		ll prev=pq.top().S;
+		ll a=pq.top().ff;
+		ll prev=pq.top().ss;
 		pq.pop();
 		if(vis[prev]==0)
 		{
@@ -47,11 +47,10 @@ int main()
 			level[prev]=a; //here is when we assign
 			for (ll j = 0; j < G[prev].size(); ++j)
 			{
-				ll val=G[prev][j].S;
-				ll z=G[prev][j].F;
+				ll val=G[prev][j].ss;
+				ll z=G[prev][j].ff;
 				if(!vis[z])
 				{
-					pq.push(mp(level[z],z));
 					pq.push(mp(level[prev]+val,z));
 				}
 			}
