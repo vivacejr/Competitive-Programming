@@ -54,7 +54,25 @@ ll build(ll node,ll start,ll end)
 	}
 }
 
-
+ll query(ll node,ll st,ll ed,ll l,ll r,ll val)
+{
+	if(st>ed||ed<l||st>r)
+	{
+		return 0;
+	}
+	if(st>=l&&ed<=r)
+	{
+		ll x = tre[node].S.order_of_key(mp(val,-1LL));
+		return x;
+	}
+	else
+	{
+		ll mid=(st+ed)/2;
+		ll x=query(2*node,st,mid,l,r,val);
+		ll y=query(2*node+1,mid+1,ed,l,r,val);
+		return x+y;
+	}
+}
 
 int main()
 {
